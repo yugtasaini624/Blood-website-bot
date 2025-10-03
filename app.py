@@ -15,7 +15,28 @@ def answer_question(question):
         return "Hii!! How can I help you today? 😊 Do you want to donate blood or request blood?"
 
     # Blood donation
-    elif "donate" in question or "give blood" in question or "blood donation" in question:
+    elif "free" in question and "blood" in question:
+         return ("Yes, donating blood is completey free. If you request blood, hospitals may charge only for testing and processing, but not for the blood itself..")
+    
+    elif "donate" in question and "diabetes" in question:
+         return ("Yes, if your diabetes are under control and you are not dependent on insulin. However, eligibility is confirmed during screening.")
+    
+    elif "fever" in question or "cold" in question:
+         return ("No, you should wait at least 2 weeks after recovery before donation.")
+    
+    elif "tattoo" in question:
+         return ("Yes, you should wait at least 6 months after getting a tattoo or piercing before donation.")
+    
+    elif "pregnant" in question:
+         return ("No, pregnant women are not eligible for blood donation")
+    
+    elif "emergency" in question:
+         return "In emergencies, please call our emergency helpline: +91 1234569912. Our team will connect you with available donors immediately."
+    
+    elif "where" in question and "donate" in question:
+         return ("You can visit the nearest blood donation center. Use our location finder tool on the website to find closest one.")
+     
+    elif "donate blood" in question or "give blood" in question or "blood donation" in question:
             previous_context = "donate_followup"
             return ("You can donate blood by registering on our website. "
                     "Make sure you meet the eligibility criteria: age 18–65, healthy, not under medication, etc. "
@@ -57,9 +78,12 @@ def answer_question(question):
         previous_context = "contact_followup"
         return ("You can contact our support team via email or phone listed on our website. "
                 "Do you want me to give you the contact details?")
-    elif "okay" in question or "ok" in question or "fine" in question:
+    
+    elif "okay" in question or "ok" in question or "fine" in question or "thanks" in question:
          return ("I am glad to be helpful to you 😊!! Do you want to ask something else?")
     
+    elif "no":
+         return ("Okay!! Thanks 😊")
     # Yes/No follow-ups
     elif "yes" in question or "sure" in question:
         # Donation flow
